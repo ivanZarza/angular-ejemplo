@@ -1,0 +1,10 @@
+.footer {
+  width: 100%;
+position: fixed;
+bottom: 0;
+background-image:radial-gradient( circle, var(--tercer-color) 40%, var(--primer-color) 100%);
+padding: 1.5rem;
+text-align: center;
+color: white;
+box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
