@@ -1,0 +1,44 @@
+<main>
+  <div class="rotulo">
+    <h1>Libros</h1>
+  </div>
+  <section *ngIf="arrayBooks.length > 0; else sinLibros">
+    <ng-container *ngFor="let book of arrayBooks; let isEven = even">
+      <div class="libro">
+        <div class="img">
+          <img src="{{book.photo}}" alt="{{book.title}}">
+        </div>
+        <div class="detalles">
+          <h2>{{ book.title }}</h2>
+          <p>{{ book.type }}</p>
+          <p>{{ book.author }}</p>
+          <p>{{ book.price  }}</p>
+        </div>
+        <div class="boton">
+          <button [ngClass]="isEven ? 'even' : 'noEven' ">Comprar</button>
+        </div>
+      </div>
+    </ng-container>
+  </section>
+  <ng-template #sinLibros>
+    <div class="vacio">
+      <h2>No hay libros disponibles</h2>
+    </div>
+  </ng-template>
+</main>
+<div class="form">
+  <form>
+    <div class="datos">
+      <label><span>Id del libro</span><input [(ngModel)]="libroId" name="libroId" type="number"></label>
+      <label><span>Id del usuario</span><input [(ngModel)]="usuarioId" name="usuarioId" type="number"></label>
+      <label><span>Titulo del libro</span><input [(ngModel)]="titulo" name="titulo" type="text"></label>
+      <label><span>Estilo del libro</span><input [(ngModel)]="estilo" name="estilo" type="text"></label>
+      <label><span>Autor del libro</span><input [(ngModel)]="autor" name="autor" type="text"></label>
+      <label><span>Precio</span><input [(ngModel)]="precio" name="precio" type="number"></label>
+      <label><span>Url de la imagen</span><input [(ngModel)]="imagenUrl" name="imagenUrl" type="text"></label>
+    </div>
+    <div class="btn">
+      <button type="button" (click)="agregarLibro()">Agregar libro</button>
+    </div>
+  </form>
+</div>
