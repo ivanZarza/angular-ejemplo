@@ -1,0 +1,18 @@
+
+      <div class="libro">
+        <div class="x">
+          <button (click)="borrarLibro(posicionLibro)">X</button>
+        </div>
+        <div class="img">
+          <img src="{{bookDesdePadre.photo}}" alt="{{bookDesdePadre.title}}">
+        </div>
+        <div class="detalles">
+          <h2>{{ bookDesdePadre.title }}</h2>
+          <p>{{ bookDesdePadre.type }}</p>
+          <p>{{ bookDesdePadre.author }}</p>
+          <p>{{ bookDesdePadre.price  }}</p>
+        </div>
+        <div class="boton">
+          <button [ngClass]="isEven ? 'even' : 'noEven' ">Comprar</button>
+        </div>
+      </div>

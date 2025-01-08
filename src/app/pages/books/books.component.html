@@ -3,21 +3,9 @@
     <h1>Libros</h1>
   </div>
   <section *ngIf="arrayBooks.length > 0; else sinLibros">
-    <ng-container *ngFor="let book of arrayBooks; let isEven = even">
-      <div class="libro">
-        <div class="img">
-          <img src="{{book.photo}}" alt="{{book.title}}">
-        </div>
-        <div class="detalles">
-          <h2>{{ book.title }}</h2>
-          <p>{{ book.type }}</p>
-          <p>{{ book.author }}</p>
-          <p>{{ book.price  }}</p>
-        </div>
-        <div class="boton">
-          <button [ngClass]="isEven ? 'even' : 'noEven' ">Comprar</button>
-        </div>
-      </div>
+    <ng-container *ngFor="let book of arrayBooks; let isEven = even; let i = index">
+    <app-card [bookDesdePadre]= "book" [isEven]="isEven"  [posicionLibro]="i" (libroABorrar)="libroABorrar($event)">
+    </app-card>
     </ng-container>
   </section>
   <ng-template #sinLibros>

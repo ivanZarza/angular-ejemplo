@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Book } from '../../models/book';
+import { CardComponent } from '../../components/card/card.component';
 
 @Component({
   selector: 'app-books',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, CardComponent],
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.css']
 })
@@ -32,9 +33,7 @@ export class BooksComponent {
   agregarLibro() {
     const nuevoLibro = new Book(this.libroId, this.usuarioId, this.titulo, this.estilo, this.autor, this.precio, this.imagenUrl);
     this.arrayBooks.push(nuevoLibro);
-    console.log('Libro agregado', nuevoLibro);
 
-    // Limpiar los inputs
     this.libroId = 0;
     this.usuarioId = 0;
     this.titulo = '';
@@ -42,6 +41,10 @@ export class BooksComponent {
     this.autor = '';
     this.precio = 0;
     this.imagenUrl = '';
+  }
+
+  libroABorrar(posicion) {
+    this.arrayBooks.splice(posicion, 1);
   }
 
   ngOnInit() {
