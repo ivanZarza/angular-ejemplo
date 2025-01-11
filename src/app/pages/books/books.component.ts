@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Book } from '../../models/book';
 import { CardComponent } from '../../components/card/card.component';
+import { ServiceBookService } from '../../shared/books.service';
 
 @Component({
   selector: 'app-books',
@@ -12,40 +13,15 @@ import { CardComponent } from '../../components/card/card.component';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent {
-  public book: Book;
-  public book2: Book;
-  public arrayBooks: Book[] = [];
 
-  public libroId: number = 0;
-  public usuarioId: number = 0;
-  public titulo: string = '';
-  public estilo: string = '';
-  public autor: string = '';
-  public precio: number = 0;
-  public imagenUrl: string = '';
+  public arrayBooks: Book[];
 
-  constructor() { 
-    this.book = new Book(1, 1, 'El Señor de los Anillos', 'Fantasia', 'J.R.R. Tolkien', 20, 'https://m.media-amazon.com/images/I/81Hx32a745L._SL1500_.jpg');
-    this.book2 = new Book(2, 1, 'El Hobbit', 'Fantasia', 'J.R.R. Tolkien', 15, 'https://m.media-amazon.com/images/I/81dJWKg3LUL._SL1500_.jpg');
-    this.arrayBooks.push(this.book, this.book2, this.book, this.book, this.book2, this.book, this.book, this.book2);
+  constructor(public serviceBookService: ServiceBookService) { 
+  
+    this.arrayBooks = this.serviceBookService.getAll();
+
   }
 
-  agregarLibro() {
-    const nuevoLibro = new Book(this.libroId, this.usuarioId, this.titulo, this.estilo, this.autor, this.precio, this.imagenUrl);
-    this.arrayBooks.push(nuevoLibro);
-
-    this.libroId = 0;
-    this.usuarioId = 0;
-    this.titulo = '';
-    this.estilo = '';
-    this.autor = '';
-    this.precio = 0;
-    this.imagenUrl = '';
-  }
-
-  libroABorrar(posicion) {
-    this.arrayBooks.splice(posicion, 1);
-  }
 
   ngOnInit() {
   }
