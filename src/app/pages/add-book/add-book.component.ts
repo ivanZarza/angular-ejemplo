@@ -12,30 +12,43 @@ import { ServiceBookService } from '../../shared/books.service';
 })
 export class AddBookComponent {
 
-  public libroId: number = 0;
-  public usuarioId: number = 0;
-  public titulo: string = '';
-  public estilo: string = '';
-  public autor: string = '';
-  public precio: number = 0;
-  public imagenUrl: string = '';
+  public libroId: number 
+  public usuarioId: number 
+  public titulo: string 
+  public estilo: string 
+  public autor: string 
+  public precio: number 
+  public imagenUrl: string 
+  public libroEncontrado: Book
 
   constructor(public serviceBookService: ServiceBookService) { 
 
   }
 
 agregarLibro() {
+    this.libroEncontrado = this.serviceBookService.getOne(this.libroId);
+    if (this.libroEncontrado) {
+      alert('El id del libro ya existe');
+      return;
+    }
+
+    if(!this.libroId){
+      alert('El id del libro no puede estar vacio');
+      return;
+    }
+
     const nuevoLibro = new Book(this.libroId, this.usuarioId, this.titulo, this.estilo, this.autor, this.precio, this.imagenUrl);
 
-    this.libroId = 0;
-    this.usuarioId = 0;
-    this.titulo = '';
-    this.estilo = '';
-    this.autor = '';
-    this.precio = 0;
-    this.imagenUrl = '';
+    this.libroId 
+    this.usuarioId 
+    this.titulo 
+    this.estilo 
+    this.autor 
+    this.precio 
+    this.imagenUrl 
 
     this.serviceBookService.add(nuevoLibro);
+    alert('Libro añadido');
   }
 
   ngOnInit() {

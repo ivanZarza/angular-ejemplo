@@ -1,8 +1,10 @@
 <div class="form">
   <form>
     <div class="datos">
+      <div class="buscar">
       <label><span>Id del libro</span><input [(ngModel)]="libroId" name="libroId" type="number"></label>
       <button (click)="encontrarLibro()">Buscar el Libro</button>
+    </div>
       <label><span>Id del usuario</span><input [(ngModel)]="usuarioId" name="usuarioId" type="number"></label>
       <label><span>Titulo del libro</span><input [(ngModel)]="titulo" name="titulo" type="text"></label>
       <label><span>Estilo del libro</span><input [(ngModel)]="estilo" name="estilo" type="text"></label>
@@ -11,7 +13,7 @@
       <label><span>Url de la imagen</span><input [(ngModel)]="imagenUrl" name="imagenUrl" type="text"></label>
     </div>
     <div class="btn">
-      <button type="button" (click)="modificarLibro()">Agregar libro</button>
+      <button type="button" (click)="modificarLibro()">Modificar</button>
     </div>
   </form>
 </div>
