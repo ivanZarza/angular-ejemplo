@@ -41,4 +41,8 @@ private noIgual(control: AbstractControl) {
   
 }
 
+public prueba() {
+  console.log(this.registerForm.value);
+}
+
 }

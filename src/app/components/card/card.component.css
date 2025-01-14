@@ -22,8 +22,10 @@
 .id {
   display: flex;
   justify-content: right;
-  width: 50%;
+  width: 60%;
   color: white;
+  font-size: larger;
+  font-weight: bolder;
 }
 
 .x button {

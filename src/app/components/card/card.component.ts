@@ -2,11 +2,12 @@ import { Component, Input, } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Book } from '../../models/book';
 import { ServiceBookService } from '../../shared/books.service'; 
+import { PipeRefPipe } from '../../pipes/pipe-ref.pipe';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PipeRefPipe],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
