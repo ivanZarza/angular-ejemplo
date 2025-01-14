@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  padding-top: 100px;
+  padding-top: 10px;
 }
 
 .form{
@@ -13,6 +13,8 @@
   border-radius: 5px;
   background-color: #f9f9f9;
 }
+
+
 
 form {
   width: 100%;
@@ -27,7 +29,7 @@ h2 {
 }
 
 .seccion{
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 label {

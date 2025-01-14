@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Book } from '../../models/book';
 import { CardComponent } from '../../components/card/card.component';
 import { ServiceBookService } from '../../shared/books.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-books',
@@ -19,7 +20,7 @@ export class BooksComponent {
   public arrayBooks: Book[] ;
   public libroEncontrado: Book;
 
-  constructor(public serviceBookService: ServiceBookService) {
+  constructor(public serviceBookService: ServiceBookService, private toastr: ToastrService) {
 
     this.libroEncontrado = this.serviceBookService.getOne(this.libroId);
     this.arrayBooks = this.serviceBookService.getAll();
@@ -42,7 +43,10 @@ export class BooksComponent {
 
     if(!this.libroEncontrado){
       this.arrayBooks = this.serviceBookService.getAll();
-      alert('No se encuentra el libro');
+      this.toastr.success('Libro no encontrado', 'Fallo', {
+        toastClass: 'ngx-toastr custom-toast-error',
+        positionClass: 'toast-bottom-right'
+      });
       return;
     }
   }
