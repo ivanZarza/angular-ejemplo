@@ -15,7 +15,7 @@ export class ProfileComponent {
   public mensaje: string = '';
 
   constructor() {
-    this.user = new User(1, 'Ivan', 'Zarza Estevez', 'ivanzarzaestevez@gimeil.com', '../../../assets/img/Captura desde 2025-01-02 08-34-45 (copia).png');
+    this.user = new User(1, 'Ivan', 'Zarza Estevez', 'ivanzarzaestevez@gimeil.com', '/home/ivan/dev/Curso/Curso-Back-End-Codenotch/retosEvaluables/modulo3/retoEvaluableModulo3/src/assets/img/Captura desde 2025-01-02 08-34-45 (copia).png');
 
   }
 

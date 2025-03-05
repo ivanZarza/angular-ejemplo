@@ -1,7 +1,6 @@
-import { Component, Input, } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Book } from '../../models/book';
-import { ServiceBookService } from '../../shared/books.service'; 
 import { PipeRefPipe } from '../../pipes/pipe-ref.pipe';
 
 @Component({
@@ -15,17 +14,17 @@ export class CardComponent {
 
   @Input() bookDesdePadre: Book;
   @Input() isEven: boolean;
+  @Output() libroABorrar = new EventEmitter<number>();
 
-  constructor( public serviceBookService: ServiceBookService) { 
+  constructor( ) { 
 
   }
 
   borrarLibro(id: number) {
-    console.log('Borrando libro con id: ', id);
-    this.serviceBookService.delete(id);
+    console.log('Borrando libro con id Card component: ', id);
+    this.libroABorrar.emit(id);
   }
   
   ngOnInit() {
   }
 }
-

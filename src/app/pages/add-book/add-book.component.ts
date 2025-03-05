@@ -4,58 +4,69 @@ import { Book } from '../../models/book';
 import { CommonModule } from '@angular/common';
 import { ServiceBookService } from '../../shared/books.service';
 import { ToastrService } from 'ngx-toastr';
+import { Respuesta } from '../../models/respuesta';
 
 @Component({
   selector: 'app-add-book',
   standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './add-book.component.html',
-  styleUrl: './add-book.component.css'
+  styleUrls: ['./add-book.component.css']
 })
 export class AddBookComponent {
 
-  public libroId: number
-  public usuarioId: number
-  public titulo: string
-  public estilo: string
-  public autor: string
-  public precio: number
-  public imagenUrl: string
-  public libroEncontrado: Book
+  public libroId: number;
+  public usuarioId: number;
+  public titulo: string;
+  public estilo: string;
+  public autor: string;
+  public precio: number;
+  public imagenUrl: string;
 
-  constructor(public serviceBookService: ServiceBookService, private toastr: ToastrService) {
-
-  }
+  constructor(public serviceBookService: ServiceBookService, private toastr: ToastrService) {}
 
   agregarLibro() {
-    this.libroEncontrado = this.serviceBookService.getOne(this.libroId);
-    if (this.libroEncontrado) {
-      alert('El id del libro ya existe');
-      return;
-    }
+    this.serviceBookService.getAll().subscribe((resp: Respuesta) => {
+      if (resp.ok === false) {
+        this.toastr.error(resp.message, 'Error', {
+          toastClass: 'ngx-toastr custom-toast-error',
+          positionClass: 'toast-bottom-right'
+        });
+        return;
+      }
+      this.serviceBookService.books = resp.data;
 
-    if (!this.libroId) {
-      alert('El id del libro no puede estar vacio');
-      return;
-    }
+      const libroEncontrado = this.serviceBookService.books.find(book => book.id_book === this.libroId);
 
-    const nuevoLibro = new Book(this.libroId, this.usuarioId, this.titulo, this.estilo, this.autor, this.precio, this.imagenUrl);
+      if (libroEncontrado) {
+        alert('El id del libro ya existe');
+        return;
+      }
 
-    this.libroId
-    this.usuarioId
-    this.titulo
-    this.estilo
-    this.autor
-    this.precio
-    this.imagenUrl
+      if (!this.libroId) {
+        alert('El id del libro no puede estar vacio');
+        return;
+      }
 
-    this.serviceBookService.add(nuevoLibro);
+      const nuevoLibro = new Book(this.libroId, this.usuarioId, this.titulo, this.estilo, this.autor, this.precio, this.imagenUrl);
 
-    this.toastr.success('Libro agregado con exito', 'Exito', {
-      toastClass: 'ngx-toastr custom-toast'
+      this.libroId
+      this.usuarioId
+      this.titulo
+      this.estilo
+      this.autor
+      this.precio
+      this.imagenUrl
 
+      this.serviceBookService.add(nuevoLibro).subscribe((resp: Respuesta) => {;
+
+      this.toastr.success('Libro agregado con exito', 'Exito', {
+        toastClass: 'ngx-toastr custom-toast'
+      });
     });
+  })
   }
+
 
   ngOnInit() {
   }

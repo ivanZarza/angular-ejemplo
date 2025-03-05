@@ -13,7 +13,7 @@
 }
 
 .izquierda{
-  width: 45%;
+
   height: 600px;
   display: flex;
   flex-direction: column;

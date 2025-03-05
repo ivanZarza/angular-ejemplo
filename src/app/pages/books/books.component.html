@@ -4,10 +4,10 @@
   </div>
   <div class="buscar">
     <label><span>Id del libro</span><input [(ngModel)]="libroId" name="libroId" type="number"></label>
-    <button (click)="buscarLibro()">Buscar</button>
+    <button (click)="buscarLibro(libroId)">Buscar</button>
   </div>
-  <section *ngIf="arrayBooks.length > 0; else sinLibros">
-    <ng-container *ngFor="let book of arrayBooks; let isEven = even">
+  <section *ngIf="this.serviceBookService.books.length > 0; else sinLibros">
+    <ng-container *ngFor="let book of this.serviceBookService.books; let isEven = even">
       <app-card [bookDesdePadre]="book" [isEven]="isEven" (libroABorrar)="libroABorrar($event)">
       </app-card>
     </ng-container>
