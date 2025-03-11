@@ -1,27 +1,34 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
-import { Usuario } from '../../models/usuario';
-
+import { UsuarioService } from '../../shared/usuario.service';
+import { User } from '../../models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-login',
   standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './form-login.component.html',
-  styleUrl: './form-login.component.css'
+  styleUrls: ['./form-login.component.css']
 })
 export class FormLoginComponent {
 
-  public usuario: Usuario;
+  public user: User;
 
-  constructor() {
-    this.usuario = new Usuario();
+  constructor(public usuario: UsuarioService, private router: Router) {
+    this.user = new User(null, '', '', '', '', '');
   }
 
-  public onSubmit(form:NgForm) {
-    console.log(this.usuario);
-    console.log(form.value);
+  public async onSubmit(form: NgForm) {
+    this.user.email = form.value.email;
+    this.user.password = form.value.password;
+    await this.usuario.login(this.user);
+    if (this.usuario.logueado  === true) {
+      this.router.navigate(['/books']);
+      localStorage.setItem('user', JSON.stringify(this.usuario));
+    }
+    form.resetForm();
   }
-
 }
+// 

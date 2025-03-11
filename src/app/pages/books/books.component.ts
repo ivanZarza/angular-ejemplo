@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Book } from '../../models/book';
 import { CardComponent } from '../../components/card/card.component';
 import { ServiceBookService } from '../../shared/books.service';
+import { UsuarioService } from '../../shared/usuario.service';
 import { ToastrService } from 'ngx-toastr';
-import { Respuesta } from '../../models/respuesta';
 
 
 @Component({
@@ -15,50 +16,40 @@ import { Respuesta } from '../../models/respuesta';
   styleUrls: ['./books.component.css']
 })
 
-export class BooksComponent implements OnInit {
+export class BooksComponent {
 
   public libroId: number;
+  public arrayBooks: Book[];
 
-  constructor(public serviceBookService: ServiceBookService, private toastr: ToastrService) {}
 
-  buscarLibro(libroId: number) {
-    if (!libroId) {
-      this.serviceBookService.getAll().subscribe((resp: Respuesta) => {
-        if (resp.ok === false) {
-          this.toastr.error(resp.message, 'Error', {
-            toastClass: 'ngx-toastr custom-toast-error',
-            positionClass: 'toast-bottom-right'
-          });
-          return;
+  constructor(public serviceBookService: ServiceBookService, private toastr: ToastrService, public usuarioService: UsuarioService) {
+    this.arrayBooks = null;
+    this.libroId = null;
+  }
+  public async buscarLibro() {
+
+    try {
+      if (this.libroId) {
+        await this.serviceBookService.getBooks({ id_book: this.libroId, id_user: this.usuarioService.user.id_user });
+        console.log(this.usuarioService.user.id_user);
+        this.arrayBooks = this.serviceBookService.arrayBooks;
+        console.log(this.arrayBooks);
+
+        if (this.arrayBooks.length === 0) {
+          this.toastr.error('No se encontró el libro');
         }
-        this.serviceBookService.books = resp.data;
-        console.log(this.serviceBookService.books);
-      });
-    } else {
-      this.serviceBookService.getOne(libroId).subscribe((resp: Respuesta) => {
-        if (resp.ok === false) {
-          this.toastr.error(resp.message, 'Error', {
-            toastClass: 'ngx-toastr custom-toast-error',
-            positionClass: 'toast-bottom-right'
-          });
-        } else {
-          this.serviceBookService.books = resp.data;
-        }
-      });
+      }  else {
+        await this.serviceBookService.getBooks({ id_user: this.usuarioService.user.id_user });
+        console.log(this.usuarioService.user.id_user);
+        this.arrayBooks = this.serviceBookService.arrayBooks;
+        console.log(this.arrayBooks);
+      }
+    } catch (error) {
+      this.toastr.error('Error al buscar el libro');
     }
   }
 
-libroABorrar(id:number) {
-  this.serviceBookService.delete(id).subscribe((resp: Respuesta) => {
-    if (resp.ok === false) {
-      this.toastr.error(resp.message, 'Error', {
-        toastClass: 'ngx-toastr custom-toast-error',
-        positionClass: 'toast-bottom-right'
-    })
-  }
-  this.serviceBookService.books = resp.data
-})
-}
+
 
   ngOnInit() {
 

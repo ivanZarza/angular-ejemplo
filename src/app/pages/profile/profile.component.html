@@ -11,17 +11,18 @@
 
       <div class="datos">
         <h2>Nombre:</h2>
-        <input type="text" value="{{ user.name }}">
+        <h2>{{ usuarioService.user.name }}</h2>
+
       </div>
 
       <div class="datos">
         <h2>Apellidos:</h2>
-        <input type="text" value="{{ user.last_name }}" >
+        <h2>{{ user.last_name }}</h2>
       </div>
 
       <div class="datos">
         <h2>Correo:</h2>
-        <input type="text" value="{{ user.email }}">
+        <h4>{{ user.email }}</h4>
       </div>
     </div>
     <div class="derecha">
@@ -32,23 +33,31 @@
       <div class="form">
         <form>
           <div class="input">
-            <label><span>Nombre</span><input type="text" #nuevoNombre></label>
+            <label><span>Nombre</span><input type="text" #nuevoNombre value="{{usuarioService.user.name}}"></label>
           </div>
 
           <div class="input">
-            <label><span>Apellidos</span><input type="text"  #nuevoApellido></label>
+            <label><span>Apellidos</span><input type="text"  #nuevoApellido value="{{usuarioService.user.last_name}}"></label>
           </div>
 
           <div class="input">
-            <label><span>Correo</span><input type="email" #nuevoCorreo></label>
+            <label><span>Correo</span><input type="email" #nuevoCorreo value="{{usuarioService.user.email}}"></label>
           </div>
 
           <div class="input">
-            <label><span>Url</span><input type="url" #nuevaFoto></label>
+            <label><span>Url</span><input type="url" #nuevaFoto value="{{usuarioService.user.photo}}"></label>
+          </div>
+
+          <div class="input">
+            <label><span>Password 1</span><input type="password" #password1></label>
+          </div>
+          
+          <div class="input">
+            <label><span>Password 2</span><input type="password" #password2></label>
           </div>
 
           <div class="boton" >
-            <button type="button" (click)="lanzarFuncion(nuevoNombre.value, nuevoApellido.value, nuevoCorreo.value, nuevaFoto.value)" >Escribir</button>
+            <button type="button" (click)="actualizarUsuario(nuevoNombre.value, nuevoApellido.value, nuevoCorreo.value, nuevaFoto.value,  password1.value, password2.value)" >Actualizar</button>
           </div>
           <h1 [class] ="miClase" >{{ mensaje }}</h1>
         </form>

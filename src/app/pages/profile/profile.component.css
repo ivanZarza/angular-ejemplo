@@ -1,30 +1,35 @@
 
 .container {
-  background-image: url(../../../assets/img/fondo-profile\ .jpg);
+  height: 80vh;
+  background-image: url(../../../assets/img/fondo-profile.jpg);
   background-size: 110vw 85vh;
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
-  height: 75vh;
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 10px;
+
 }
 
 .izquierda{
-
+  width: 40%;
   height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   gap: 1rem; 
-  padding: 50px;
+  margin-left: 250px;
 }
 
 .imagen {
   max-width: 60%;
+}
+
+.titulo {
+  text-transform: capitalize;
 }
 
 img {
@@ -37,9 +42,13 @@ img {
 width:  60%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
   gap: 1rem;
+}
+
+.datos h2 {
+  text-transform: capitalize;
 }
 
 .derecha {
@@ -51,7 +60,7 @@ width:  60%;
   align-items: center;
   gap: 1rem; 
   padding: 30px 50px;
-margin-right: 20px;
+margin-right: 200px;
 }
 
 .encabezado {
@@ -95,7 +104,8 @@ input {
   padding: 10px;
   font-size: 1rem;
   border-style: solid;
-  border-color: var(--tercer-color);
+  border-color: var(--primer-color);
+  border-radius: 5px;
 }
 
 .boton {
@@ -107,15 +117,15 @@ input {
   margin: 10px;
   padding: 1rem 2rem;
   font-size: 1.5rem;
-  background-color: var(--tercer-color);
-  color: white;
+  background-color: var(--primer-color);
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
   border: none;
   cursor: pointer;
 }
 
 .boton button:hover {
-box-shadow: inset 0 0 50px rgb(0, 0, 0);
-
+  background-color: color-mix(in srgb, var(--primer-color), #777 10%);
 }
 
 .usuario {

@@ -12,11 +12,13 @@ export class UsuarioService {
   public user: User;
 
   constructor() {
-    this.url = 'http://localhost:3000';
+    // this.url = 'http://localhost:3000';
+    this.url = 'https://api-books-xi.vercel.app';
 
     const userJSON = globalThis.localStorage?.getItem('user')
     if (userJSON) {
-      const user = JSON.parse(userJSON);
+      const { user } = JSON.parse(userJSON);
+      console.log('user from userJSON', user);
 
       this.user = new User(user.id_user, user.name, user.last_name, user.email, user.photo, user.password);
       this.logueado = true;

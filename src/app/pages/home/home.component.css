@@ -4,7 +4,7 @@ main {
   height: 75vh;
   display: flex;
   flex-direction: column;
-justify-content: space-between;
+justify-content: space-around;
 
 }
 
@@ -18,7 +18,7 @@ justify-content: space-between;
 .sombreado {
   width: 100%;
   height: 100%;
-  background-color: #00000081;
+  background-color: #000000a4;
   color: white;
   display: flex;
   flex-direction: column;
@@ -27,22 +27,25 @@ justify-content: space-between;
 }
 
 
-h1 {
-  font-size: 5rem;
+.sombreado h1 {
+  font-size: 3rem;
   margin-bottom: 20px;
 }
 
-h2 {
+.sombreado h2 {
   font-size: 2rem;
   margin-bottom: 20px;
 }
+
 
 
 .anuncios {
   display: flex;
   justify-content: space-around;
   background-color: #f5f5f5;
-  padding: 50px;
+  padding: 30px;
+  margin-bottom: 20px;
+  height: fit-content;
 }
 
 .cartel {
@@ -60,11 +63,81 @@ h2 {
 }
 
 
-footer {
-  position: sticky;
-  bottom: -10px;
-  text-align: center;
-  padding: 20px;
-  background-color: #2c3e50;
-  color: white;
+
+
+@media (max-width: 768px) {
+  main {
+    height: 80vh;
+  }
+
+  .sombreado h1 {
+    font-size: 2rem;
+  }
+
+  .sombreado h2 {
+    font-size: 1.5rem;
+  }
+
+  .anuncios {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .cartel {
+    max-width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .cartel h3 {
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .cartel p {
+    font-size: 0.9rem;
+
+  }
+}
+
+@media (max-width: 475px) {
+
+  main {
+    height: 73vh;
+  }
+
+  .sombreado h1 {
+    font-size: 1.2rem;
+  }
+
+  .sombreado h2 {
+    font-size: 1rem;
+  }
+
+  .anuncios {
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding: 10px;
+    margin-bottom: 80px;
+  }
+
+  .cartel {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .cartel h3 {
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .cartel p {
+    font-size: 0.7rem;
+    margin-bottom: 5px;
+  }
+  
 }

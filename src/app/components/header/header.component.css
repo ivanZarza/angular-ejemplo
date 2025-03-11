@@ -1,16 +1,20 @@
 
 header {
-  background: radial-gradient(circle, var(--primer-color) 0%, var(--segundo-color) 70%);
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background-image:radial-gradient( circle,var(--primer-color)  40%, var(--tercer-color) 100%);
   color: #2c3e50;
   text-align: center;
   padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   font-family: 'Georgia', serif;
+  z-index: 1000;
 }
 
 header h1 {
   font-size: 2.5rem;
-  padding: 8px;
+
   color: var(--texto-color);
 }
 
@@ -33,5 +37,46 @@ header a {
 }
 
 header a:hover {
-  color: var(--hover-color);
+  color: rgb(0, 118, 122);
+  font-weight: bolder;
+}
+
+header a.active {
+  color: rgb(24, 122, 0);
+  text-decoration-line: underline ;
+  font-weight: 900;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header h2 {
+    font-size: 1.25rem;
+  }
+
+  nav {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 475px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header h2 {
+    font-size: 1rem;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  header a {
+    font-size: 0.875rem;
+    padding: 0;
+  }
 }
