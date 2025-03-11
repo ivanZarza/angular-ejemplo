@@ -152,12 +152,12 @@ button:hover {
     width: 25%;
   }
 
-  .form {mar
+  .form {
     padding: 15px;
   }
 
   .datos {
-    gap: 2px;
+    gap: 5px;
   }
 
   span {
@@ -194,6 +194,9 @@ button:hover {
     padding: 10px;
   }
 
+  .datos {
+    gap: 2px;
+  }
 
   input,
   select {
