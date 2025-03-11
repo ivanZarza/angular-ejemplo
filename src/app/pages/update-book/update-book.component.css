@@ -61,7 +61,7 @@
 
 
   .buscar input {
-    width: 100%;
+    width: 80%;
   }
 
 form {
@@ -194,7 +194,13 @@ button:hover {
     font-size: 0.8rem;
   }
 
-  .buscar button, .btn button {
+  .buscar button{
+    width: 50%;
+    font-size: 0.8rem;
+    padding: 4px;
+  }
+
+  .btn button {
     font-size: 0.8rem;
     padding: 2px;
   }
