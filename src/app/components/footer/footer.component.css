@@ -1,12 +1,12 @@
 .footer {
   width: 100%;
-position: fixed;
+
 bottom: 0;
 background-image:radial-gradient( circle,var(--primer-color)  40%, var(--tercer-color) 100%);
 padding: 10px;
 text-align: center;
 color: white;
-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+
 }
 
 
@@ -70,11 +70,11 @@ box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 
 @media (max-width: 345px) {
   .footer {
-    padding: 6px;
+    padding: 0px;
   }
 
   .footer h2 {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .redes {
@@ -82,7 +82,7 @@ box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
   }
 
   .redes img {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
   }
 }

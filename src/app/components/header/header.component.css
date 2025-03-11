@@ -80,3 +80,19 @@ header a.active {
     padding: 0;
   }
 }
+
+@media (max-width: 345px) {
+  header a {
+    font-size: 0.6rem;
+    padding: 0;
+  }
+
+  header h1 {
+    font-size: 1rem;
+  }
+
+  header h2 {
+    font-size: 0.8rem;
+  }
+
+}

@@ -82,14 +82,10 @@ button {
 @media (max-width: 768px) {
   .libro {
     min-height: 350px;
-    width: 150px;
     padding: 10px;
     padding-bottom: 8px;
   }
 
-  .img img {
-    height: 150px;
-  }
 
   .id {
     font-size: medium;
@@ -115,15 +111,12 @@ p{
 
 @media (max-width: 475px) {
   .libro {
-    width: 120px;
     height: 250px;
     padding: 4px;
     padding-bottom: 6px;
   }
 
-  .img img {
-    height: 120px;
-  }
+
 
   .id {
     font-size: small;
