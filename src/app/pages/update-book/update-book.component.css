@@ -162,6 +162,7 @@ button:hover {
   input,
   select {
     padding: 5px;
+    margin-top: 3px;
   }
 
   .buscar button {
@@ -197,6 +198,7 @@ button:hover {
   select {
     padding: 1px;
     font-size: 0.8rem;
+    margin-top: 1px;
   }
 
   .buscar button{
