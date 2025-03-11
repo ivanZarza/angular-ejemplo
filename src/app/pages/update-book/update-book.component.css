@@ -80,7 +80,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 14px;
+
 }
 
 .form label {
@@ -152,7 +152,7 @@ button:hover {
     width: 25%;
   }
 
-  .form {
+  .form {mar
     padding: 15px;
   }
 
