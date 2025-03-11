@@ -37,10 +37,11 @@ form {
   border-radius: 5px;
 }
 
-h2 {
+.rotulo {
+  font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 10px;
 }
+
 
 .seccion {
   margin-bottom: 14px;
@@ -52,6 +53,7 @@ label {
 }
 
 span {
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -78,6 +80,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 1.5rem;
 }
 
 button:hover {
@@ -87,6 +90,10 @@ button:hover {
 @media (max-width: 768px) {
   .container {
     background-size: cover;
+  }
+
+  .rotulo{
+    font-size: 1.5rem;
   }
 
   .form {
@@ -108,12 +115,17 @@ button:hover {
 
   button {
     padding: 8px;
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 475px) {
   .container {
     background-size: cover;
+  }
+
+  .rotulo{
+    display: none;
   }
 
   .form {

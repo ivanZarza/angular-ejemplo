@@ -3,7 +3,7 @@
   <div class="form">
 
     <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-      <h2>Logout</h2>
+      <h2 class="rotulo">Logout</h2>
       <div class="form-group">
         <label><span>Email</span><input type="email" name="email" [(ngModel)]="user.email" #emailId="ngModel" email
             required [ngClass]="{'invalido': (emailId.dirty || emailId.touched ) && emailId.invalid}"></label>
