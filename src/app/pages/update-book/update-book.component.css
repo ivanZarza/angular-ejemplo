@@ -38,23 +38,24 @@
 }
 
 .buscar {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
 }
 
-.buscar button {
-    width: 100%;
-    padding: 10px ;
+.buscar button{
+  width: 30%;
+    padding: 5px ;
     background-color: var(--primer-color);
     color: rgb(0, 0, 0);
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 1rem;
-    width: 40%;
+    font-size: 1.5rem;
+
   }
 
 
@@ -140,6 +141,9 @@ button:hover {
   .rotulo {
     font-size: 1.5rem;
   }
+  .buscar button {
+    width: 25%;
+  }
 
   .form {
     width: 60%;
@@ -160,7 +164,7 @@ button:hover {
     padding: 5px;
   }
 
-  button {
+  .buscar button, .btn button {
     font-size: 1rem;
     padding: 8px;
   }
@@ -190,10 +194,9 @@ button:hover {
     font-size: 0.8rem;
   }
 
-  button {
+  .buscar button, .btn button {
     font-size: 0.8rem;
     padding: 2px;
-    margin-top: 1px;
   }
 
   span {
