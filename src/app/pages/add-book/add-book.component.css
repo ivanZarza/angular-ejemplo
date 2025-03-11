@@ -129,16 +129,19 @@ button:hover {
     gap: 3px;
   }
 
-  input {
-    padding: 3px;
+  input, select {
+    padding: 1px;
+    font-size: 0.8rem;
   }
 
   button {
-    padding: 6px;
+    font-size: 0.8rem;
+    padding:2px;
   }
 
   span {
     font-weight: bold;
     font-size: 0.8rem;
   }
+
 }
