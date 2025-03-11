@@ -203,6 +203,7 @@ button:hover {
   .btn button {
     font-size: 0.8rem;
     padding: 2px;
+    padding: 6px 3px;
   }
 
   span {
