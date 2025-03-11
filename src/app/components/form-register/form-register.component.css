@@ -2,11 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 100%;
   background-image: url('https://media.cntraveler.com/photos/5a8dd6793e9f9737bfc6cf22/16:9/w_1920,c_limit/Christ-Church_Ralph-Williamson__2018__MG_2614---Version-2.jpg');
   background-size: contain;
   background-position: center;
-  box-shadow: inset 0 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .desenfoque {
@@ -40,7 +39,7 @@ form {
 
 h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .seccion {
@@ -88,12 +87,19 @@ button:hover {
 @media (max-width: 768px) {
   .container {
     background-size: cover;
-    height: 90vh;
   }
 
   .form {
     padding: 15px;
-    margin-bottom: 100px;
+    width: 50%;
+  }
+
+  .seccion {
+    margin-bottom: 9px;
+  }
+
+  span {
+    font-size: 1rem;
   }
 
   input {
@@ -107,14 +113,20 @@ button:hover {
 
 @media (max-width: 475px) {
   .container {
-    height: 80vh;
     background-size: cover;
   }
 
   .form {
-    width: 80%;
+    width: 60%;
     padding: 10px;
-    margin-bottom: 100px;
+  }
+
+  .seccion {
+    margin-bottom: 5px;
+  }
+
+  span {
+    font-size: 0.8rem;
   }
 
   input {
