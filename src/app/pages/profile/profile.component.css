@@ -1,137 +1,169 @@
 
 .container {
-  height: 80vh;
-  background-image: url(../../../assets/img/fondo-profile.jpg);
-  background-size: 110vw 85vh;
-  background-repeat: no-repeat;
+  height: 100%;
+  background-image: url(https://previews.123rf.com/images/halfpoint/halfpoint1506/halfpoint150600535/41240779-padres-composici%C3%B3n-d%C3%ADas-escritorio-de-oficina-estudio-tirado-en-el-fondo-de-madera.jpg);
+  background-size: cover;
   background-position: center;
   width: 100%;
-  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
-.izquierda{
-  width: 40%;
-  height: 600px;
+
+.desenfoque {
+  width: 100%;
+  backdrop-filter: blur(5px);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  gap: 1rem; 
-  margin-left: 250px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
 }
 
-.imagen {
-  max-width: 60%;
+.perfil {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.imagen img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
 }
 
 .titulo {
+  margin-bottom: 10px;
+  color: white;
   text-transform: capitalize;
-}
-
-img {
-  border-radius: 50%;
-  max-width: 250px;
-  height: auto;
 }
 
 .datos {
-width:  60%;
   display: flex;
-  flex-direction: row;
-  justify-content: left;
-  align-items: center;
-  gap: 1rem;
-}
-
-.datos h2 {
+  justify-content: space-between;
+  width: 50%;
+  margin-bottom: 10px;
+  color:white;
   text-transform: capitalize;
 }
 
-.derecha {
-  width: 45%;
-  height: 600px;
+.datos h2 {
+  color:white;
+}
+
+.datos h4 {
+  font-size: 0.9rem;
+  color:white;
+}
+
+.formulario {
+  width: 50%;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  gap: 1rem; 
-  padding: 30px 50px;
-margin-right: 200px;
 }
 
 .encabezado {
-  font-size: 2rem;
-  font-weight: bold;
+  margin-bottom: 10px;
+  color:white;
 }
 
 .form {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  color:white;
 }
 
 .input {
-  width: 80%;
-  gap: 1rem;
-} 
-
-label {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 10px;
-  font-size: 1.5rem;
-  gap: 3rem;
+  margin-bottom: 10px;
 }
 
-input {
-  width: 60%;
+.input label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input input {
   padding: 10px;
-  font-size: 1rem;
-  border-style: solid;
-  border-color: var(--primer-color);
+  border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 1rem;
 }
 
 .boton {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .boton button {
-  margin: 10px;
-  padding: 1rem 2rem;
-  font-size: 1.5rem;
+  padding: 10px 20px;
   background-color: var(--primer-color);
-  border-radius: 5px;
-  color: rgb(0, 0, 0);
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 1rem;
 }
 
 .boton button:hover {
   background-color: color-mix(in srgb, var(--primer-color), #777 10%);
 }
 
-.usuario {
+h1.success {
   color: green;
 }
 
-.noUsuario {
+h1.error {
   color: red;
+}
+
+@media (max-width: 768px) {
+  .datos {
+    width: 70%;
+  }
+
+  .formulario {
+    width: 70%;
+  }
+
+  .input input {
+    padding: 8px;
+  }
+
+  .boton button {
+    padding: 8px 16px;
+  }
+}
+
+/* Para pantallas con un ancho máximo de 475px */
+@media (max-width: 475px) {
+  .datos {
+    width: 90%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .formulario {
+    width: 90%;
+  }
+
+  .input input {
+    padding: 6px;
+  }
+
+  .boton button {
+    padding: 6px 12px;
+  }
+
+  .imagen img {
+    width: 150px;
+    height: 150px;
+  }
 }
