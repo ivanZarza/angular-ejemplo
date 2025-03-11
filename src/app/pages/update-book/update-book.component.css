@@ -51,7 +51,6 @@ form {
 }
 
 label {
-  margin: 5px;
   font-weight: bold;
   text-align: center;
 }
@@ -62,7 +61,6 @@ input {
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #eeeeee;
-  margin-top: 2px;
 }
 
 span {
