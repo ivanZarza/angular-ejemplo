@@ -164,7 +164,12 @@ button:hover {
     padding: 5px;
   }
 
-  .buscar button, .btn button {
+  .buscar button {
+    font-size: 1rem;
+    padding: 8px;
+  }
+
+  .btn button {
     font-size: 1rem;
     padding: 8px;
   }
@@ -201,9 +206,7 @@ button:hover {
   }
 
   .btn button {
-    font-size: 0.8rem;
-    padding: 2px;
-    padding: 6px 3px;
+    padding: 6px;
   }
 
   span {
