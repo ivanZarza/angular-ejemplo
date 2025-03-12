@@ -65,7 +65,7 @@ private noIgual(control: AbstractControl) {
 
     await this.usuario.register(datosModificados);
     if (this.usuario.logueado  === true) {
-      this.router.navigate(['/books']);
+      this.router.navigate(['/login']);
       localStorage.setItem('user', JSON.stringify(this.usuario));
     }
     this.registerForm.reset();
