@@ -28,7 +28,7 @@ export class BooksComponent {
     this.libroId = null;
   }
 
-  public async buscarLibro() {;
+  public async buscarLibro() {
     try {
       if (this.libroId) {
         await this.serviceBookService.getBooks({ id_book: this.libroId, id_user: this.usuarioService.user.id_user });
@@ -46,7 +46,9 @@ export class BooksComponent {
         if (this.arrayBooks.length === 0) {
           this.toastr.error('No se encontraron libros');
         } else {
-          this.toastr.success('Libros encontrados');
+          this.toastr.success('Libros encontrados','Exito',{
+            toastClass: 'ngx-toastr toast-validacion'
+          });
         }
       }
     } catch (error) {
