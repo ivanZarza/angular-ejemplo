@@ -31,7 +31,7 @@ export class FormLogoutComponent {
       this.toastr.success('Sesión cerrada');
       setTimeout(() => {
         this.router.navigate(['/home']);
-      }, 3000);
+      }, 2000);
     } else {
       this.toastr.error('Error al cerrar sesión');
     }
