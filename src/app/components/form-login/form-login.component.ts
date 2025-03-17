@@ -4,6 +4,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { UsuarioService } from '../../shared/usuario.service';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-form-login',
@@ -16,7 +17,7 @@ export class FormLoginComponent {
 
   public user: User;
 
-  constructor(public usuario: UsuarioService, private router: Router) {
+  constructor(public usuario: UsuarioService, private router: Router, private toastr: ToastrService) {
     this.user = new User(null, '', '', '', '', '');
   }
 
@@ -27,6 +28,9 @@ export class FormLoginComponent {
     if (this.usuario.logueado  === true) {
       this.router.navigate(['/books']);
       localStorage.setItem('user', JSON.stringify(this.usuario));
+      this.toastr.success('Inicio de sesión correcto');
+    } else {
+      this.toastr.error('Error al iniciar sesión');
     }
     form.resetForm();
   }

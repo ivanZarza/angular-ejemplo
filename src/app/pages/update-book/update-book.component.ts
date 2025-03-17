@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './update-book.component.html',
-  styleUrl: './update-book.component.css'
+  styleUrls: ['./update-book.component.css']
 })
 export class UpdateBookComponent {
 
@@ -24,21 +24,20 @@ export class UpdateBookComponent {
   public libroEncontrado: Book;
   public libroModificado: Book;
 
-  constructor(public serviceBookService: ServiceBookService, private toastr: ToastrService) {
-
-  }
+  constructor(public serviceBookService: ServiceBookService, private toastr: ToastrService) {}
 
   async encontrarLibro() {
-  await this.serviceBookService.getBooks({ id_book: this.id_book });
-  this.libroEncontrado = this.serviceBookService.arrayBooks[0];
-  console.log(this.libroEncontrado);
-    if (!this.libroEncontrado) {
-      this.toastr.success('Libro no encontrado', 'Fallo', {
-        toastClass: 'ngx-toastr custom-toast-error',
-        positionClass: 'toast-bottom-right'
-      });
+    await this.serviceBookService.getBooks({ id_book: this.id_book });
+    console.log(this.serviceBookService.arrayBooks);
+    if (this.serviceBookService.arrayBooks.length === 0) {
+      this.toastr.error('No se encontró el libro');
       return;
+    } else {
+      this.toastr.success('Libro encontrado');
     }
+    this.libroEncontrado = this.serviceBookService.arrayBooks[0];
+    console.log(this.libroEncontrado);
+
     this.id_user = this.libroEncontrado.id_user;
     this.title = this.libroEncontrado.title;
     this.type = this.libroEncontrado.type;
@@ -59,12 +58,8 @@ export class UpdateBookComponent {
     this.photo = '';
 
     this.serviceBookService.edit(libroModificado);
-    this.toastr.success('Libro modificado con exito', 'Exito', {
-      toastClass: 'ngx-toastr custom-toast'
-    });
+    this.toastr.success('Libro modificado con éxito');
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

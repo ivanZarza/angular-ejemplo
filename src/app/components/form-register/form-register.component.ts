@@ -5,6 +5,7 @@ import { FormBuilder } from '@angular/forms';
 import { UsuarioService } from '../../shared/usuario.service';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -22,7 +23,7 @@ export class FormRegisterComponent {
 
   public usuario: UsuarioService;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private usuarioService: UsuarioService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private usuarioService: UsuarioService, private toastr: ToastrService) {
 
     this.usuario = new UsuarioService();
 
@@ -67,6 +68,9 @@ private noIgual(control: AbstractControl) {
     if (this.usuario.logueado  === true) {
       this.router.navigate(['/login']);
       localStorage.setItem('user', JSON.stringify(this.usuario));
+      this.toastr.success('Usuario registrado correctamente');
+    } else {
+      this.toastr.error('Error al registrar el usuario');
     }
     this.registerForm.reset();
   }

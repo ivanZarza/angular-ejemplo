@@ -4,6 +4,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { UsuarioService } from '../../shared/usuario.service';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -17,16 +18,22 @@ export class FormLogoutComponent {
 
   public user: User;
 
-  constructor(public usuario: UsuarioService, private router: Router) {
+  constructor(public usuario: UsuarioService, private router: Router, private toastr: ToastrService) {
     this.user = new User(null, '', '', '', '', '');
   }
 
   public async onSubmit(form: NgForm) {
     this.user.email = form.value.email;
     this.user.password = form.value.password;
+
     await this.usuario.logout(this.user);
     if (this.usuario.logueado === false) {
-      this.router.navigate(['/home']);
+      this.toastr.success('Sesión cerrada');
+      setTimeout(() => {
+        this.router.navigate(['/home']);
+      }, 3000);
+    } else {
+      this.toastr.error('Error al cerrar sesión');
     }
     form.resetForm();
   }

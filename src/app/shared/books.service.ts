@@ -9,11 +9,13 @@ export class ServiceBookService {
 
   private url: string;
   public arrayBooks: Book[] = [];
+  public respuesta: number; 
 
   constructor() {
     // this.url = 'http://localhost:3000';
     this.url = 'https://api-books-xi.vercel.app';
     this.arrayBooks = null;
+    this.respuesta 
   }
 
   public async getBooks({ id_user = null, id_book = null }= {}) {
@@ -36,12 +38,12 @@ export class ServiceBookService {
       throw new Error('Error en la solicitud');
     }
     const data = await response.json();
-    console.log(data.data[0]);
+    console.log(response.status);
     this.arrayBooks = data.data;
-    console.log(this.arrayBooks);
+    this.respuesta= response.status
   }
   catch (error) {
-    console.error('Error:', error);
+    console.error('Error:',error);
   }
 }
 

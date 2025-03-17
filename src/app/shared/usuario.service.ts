@@ -10,6 +10,7 @@ export class UsuarioService {
   private url: string;
   public logueado: boolean;
   public user: User;
+  public respuesta: string
 
   constructor() {
     // this.url = 'http://localhost:3000';
@@ -49,6 +50,8 @@ export class UsuarioService {
       const data = await response.json();
       this.user = data.data;
       this.logueado = true;
+      this.respuesta= response.statusText;
+      console.log(this.respuesta);
       globalThis.localStorage?.setItem('user', JSON.stringify(this.user));
     } catch (error) {
       console.error('Error:', error);
@@ -74,7 +77,7 @@ export class UsuarioService {
 
       this.user = data.data[0];
       this.logueado = true;
-      console.log(this.user);
+
       globalThis.localStorage?.setItem('user', JSON.stringify(this.user));
     } catch (error) {
       console.error('Error:', error);
@@ -126,7 +129,6 @@ export class UsuarioService {
     this.logueado = false;
     this.user = new User(null, '', '', '', '', '');
     globalThis.localStorage?.removeItem('user');
-    // document.cookie = 'autentificacion=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=localhost' + window.location.hostname + ';';
   } catch (error) {
     console.error('Error:', error);
   }

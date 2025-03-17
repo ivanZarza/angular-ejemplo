@@ -32,17 +32,22 @@ export class AddBookComponent {
     
     const nuevoLibro = new Book(this.libroId  = null , this.usuarioId = this.usuarioService.user.id_user, this.titulo, this.type, this.autor, this.precio, this.imagenUrl);
 
-    this.titulo
-    this.type
-    this.autor
-    this.precio
-    this.imagenUrl
+    this.titulo = ''
+    this.type = ''
+    this.autor = ''
+    this.precio = null
+    this.imagenUrl = ''
 
     this.serviceBookService.add(nuevoLibro);
 
+    if (this.serviceBookService.arrayBooks.length === 0) {
+      this.toastr.error('No se encontró el libro', 'Error', {
+        toastClass: 'ngx-toastr custom-toast'
+      });
+    }
+
     this.toastr.success('Libro agregado con exito', 'Exito', {
       toastClass: 'ngx-toastr custom-toast'
-
     });
   }
 

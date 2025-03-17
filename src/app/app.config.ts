@@ -8,5 +8,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration(), importProvidersFrom(BrowserAnimationsModule, ToastrModule.forRoot())],
+  providers: [provideRouter(routes), provideClientHydration(), importProvidersFrom(BrowserAnimationsModule, ToastrModule.forRoot({positionClass: 'toast-center-center', 
+        preventDuplicates: true,
+        closeButton: true,
+        progressBar: true,
+        timeOut: 1000,
+        extendedTimeOut: 1000,
+        tapToDismiss: true,
+        newestOnTop: true,
+        maxOpened: 5,
+        autoDismiss: true,
+        enableHtml: true,
+        toastClass: 'ngx-toastr custom-toast'}))],
 };
