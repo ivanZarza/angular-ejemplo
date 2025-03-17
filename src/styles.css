@@ -23,17 +23,26 @@ html, body {
 }
 
 .toast-validacion {
-  background-color: #009623; /* Color de fondo */
-  color: rgb(0, 0, 0); /* Color del texto */
-  padding: 30px; /* Espaciado interno */
-  border-radius: 30px; /* Bordes redondeados */
-  height: 100px; /* Altura */
-  font-size: 1.3rem; /* Tamaño de la fuente */
-  border: 1px solid #000000; /* Borde */
-  box-shadow:  0px 0px 60px 20px rgb(0, 0, 0); 
-  transition: background-color 0.5s ease; /* Transición para el cambio de color */
+  background-color: #fdfdfd; 
+  color: rgb(0, 0, 0); 
+  padding: 30px; 
+  border-radius: 30px; 
+  font-size: 1.3rem; 
+  border: 1px solid #000000; 
+  box-shadow: 0px 0px 35px 25px rgba(0, 255, 0, 0.9);
+  transition: background-color 0.5s ease; 
 }
 
-.toast-validacion:hover {
-  background-color: #00cc44; /* Color de fondo al pasar el ratón */
+
+
+.toast-denegado {
+  background-color: #fdfdfd; 
+  color: rgb(0, 0, 0); 
+  padding: 30px; 
+  border-radius: 30px; 
+  font-size: 1.3rem; 
+  border: 1px solid #000000; 
+  box-shadow: 0px 0px 35px 25px rgba(255, 0, 0, 0.9);
+  transition: background-color 0.5s ease; 
 }
+

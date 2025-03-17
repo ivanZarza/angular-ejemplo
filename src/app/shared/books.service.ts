@@ -84,7 +84,7 @@ export class ServiceBookService {
 
   }
 
-  public delete(id: number) {
+  public delete(id_book: number, id_user: number) {
     try {
       const response = fetch(`${this.url}`, {
         method: 'DELETE',
@@ -92,7 +92,7 @@ export class ServiceBookService {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify({ id })
+        body: JSON.stringify({ id_book , id_user })
       });
       if (!response) {
         throw new Error('Error en la solicitud');

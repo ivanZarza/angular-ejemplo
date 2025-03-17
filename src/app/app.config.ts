@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
     preventDuplicates: true,
     closeButton: true,
     progressBar: true,
-    timeOut: 0,
+    timeOut: 2000,
     easing: 'ease-in',
     extendedTimeOut: 1000,
     tapToDismiss: true,
@@ -21,6 +21,6 @@ export const appConfig: ApplicationConfig = {
     maxOpened: 5,
     autoDismiss: true,
     enableHtml: true,
-    toastClass: 'ngx-toastr toast-validacion'
+    toastClass: 'ngx-toastr toast-validacion toast-denegado'
   }))],
 };
