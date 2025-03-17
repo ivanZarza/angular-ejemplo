@@ -114,6 +114,15 @@ button {
   font-size: 1.5rem;
 }
 
+.toast-success {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  height: 300px;
+}
+
 button:hover {
   background-color: color-mix(in srgb, var(--primer-color), #777 10%);
 }
