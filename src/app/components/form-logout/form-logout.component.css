@@ -120,7 +120,7 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-  .container {
+  .container { 
     background-size: cover;
     background-size: 40%;
   }
