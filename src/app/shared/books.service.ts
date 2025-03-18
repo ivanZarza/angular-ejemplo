@@ -9,13 +9,15 @@ export class ServiceBookService {
 
   private url: string;
   public arrayBooks: Book[] = [];
-  public respuesta: number; 
+  public respuesta: number;
+  public id_user: number;
 
   constructor() {
     // this.url = 'http://localhost:3000';
     this.url = 'https://api-books-xi.vercel.app';
     this.arrayBooks = null;
     this.respuesta 
+    this.id_user ;
   }
 
   public async getBooks({ id_user = null, id_book = null }= {}) {
@@ -47,7 +49,7 @@ export class ServiceBookService {
   }
 }
 
-  public async add(book: Book) {
+  public async add(book: Book, id_user: number) {
     try {
       const response = await fetch(`${this.url}/books`, {
         method: 'POST',
@@ -55,7 +57,7 @@ export class ServiceBookService {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify(book)
+        body: JSON.stringify({book, id_user})
       });
       if (!response.ok) {
         throw new Error('Error en la solicitud');
@@ -67,7 +69,7 @@ export class ServiceBookService {
   }
 }
 
-  public edit(book: Book) {
+  public edit(book: Book, id_user: number) {
     try {
       const response = fetch(`${this.url}/books`, {
         method: 'PUT',
@@ -75,7 +77,7 @@ export class ServiceBookService {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify(book)
+        body: JSON.stringify({book, id_user})
       });
       if (!response) {
         throw new Error('Error en la solicitud');

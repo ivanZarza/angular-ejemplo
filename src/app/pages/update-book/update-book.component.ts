@@ -4,6 +4,7 @@ import { Book } from '../../models/book';
 import { ServiceBookService } from '../../shared/books.service';
 import { ToastrService } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
+import { UsuarioService } from '../../shared/usuario.service';
 
 @Component({
   selector: 'app-update-book',
@@ -24,10 +25,10 @@ export class UpdateBookComponent {
   public libroEncontrado: Book;
   public libroModificado: Book;
 
-  constructor(public serviceBookService: ServiceBookService, private toastr: ToastrService) {}
+  constructor(public serviceBookService: ServiceBookService, private toastr: ToastrService, public usuarioService: UsuarioService) {}
 
   async encontrarLibro() {
-    await this.serviceBookService.getBooks({ id_book: this.id_book });
+    await this.serviceBookService.getBooks({ id_book: this.id_book , id_user: this.usuarioService.user.id_user });
     console.log(this.serviceBookService.arrayBooks);
     if (this.serviceBookService.arrayBooks.length === 0) {
       this.toastr.error('No se encontró el libro');
@@ -57,8 +58,11 @@ export class UpdateBookComponent {
     this.price = null;
     this.photo = '';
 
-    this.serviceBookService.edit(libroModificado);
-    this.toastr.success('Libro modificado con éxito');
+    this.serviceBookService.edit(libroModificado, this.usuarioService.user.id_user);
+    this.toastr.success('Libro modificado con éxito', 'EXITO', {
+      toastClass: 'ngx-toastr toast-validacion'
+    }
+    )
   }
 
   ngOnInit() {}
