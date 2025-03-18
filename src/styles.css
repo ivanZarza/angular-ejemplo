@@ -22,25 +22,29 @@ html, body {
   height: 100%;
 }
 
+.toast-container {
+  z-index: 9999;
+}
+
 .toast-container .ngx-toastr {
   box-shadow: none !important;
 }
 
 .toast-container .ngx-toastr.toast-validacion {
-  background-color:#18800faa;
+  background-color:#a3fc9b;
   backdrop-filter: blur(5px);
-  color: rgb(255, 255, 255); 
+  color: #0e8f03; 
   padding: 10px 10px 10px 56px; 
   border-radius: 10px; 
   font-size: 1.3rem; 
-  border: 1px solid #0c9200aa; 
+  border: 1px solid #0e8f03; 
   transition: background-color 0.5s ease; 
 }
 
 
 
 .toast-container .ngx-toastr.toast-denegado {
-  background-color:#d3bcbc27;
+  background-color:#ffc3c356;
   color: rgb(255, 0, 0); 
   padding: 10px 10px 10px 56px; 
   border-radius: 10px; 
