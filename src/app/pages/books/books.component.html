@@ -9,7 +9,7 @@
     </div>
     <section *ngIf="arrayBooks?.length > 0; else sinLibros">
       <ng-container *ngFor="let book of arrayBooks; let isEven = even">
-        <app-card [bookDesdePadre]="book" [isEven]="isEven" (libroABorrar)="libroABorrar($event)">
+        <app-card [bookDesdePadre]="book" [isEven]="isEven"  (borrarLibroEvent)="borrarLibro($event)">
         </app-card>
       </ng-container>
     </section>

@@ -9,11 +9,11 @@ import { ToastrModule } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideClientHydration(), importProvidersFrom(BrowserAnimationsModule, ToastrModule.forRoot({
-    positionClass: 'toast-center-center',
+    positionClass: 'toast-top-right',
     preventDuplicates: true,
     closeButton: true,
     progressBar: true,
-    timeOut: 2000,
+    timeOut: 0,
     easing: 'ease-in',
     extendedTimeOut: 1000,
     tapToDismiss: true,

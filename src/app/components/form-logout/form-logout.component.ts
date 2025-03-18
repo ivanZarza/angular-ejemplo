@@ -28,12 +28,17 @@ export class FormLogoutComponent {
 
     await this.usuario.logout(this.user);
     if (this.usuario.logueado === false) {
-      this.toastr.success('Sesión cerrada');
+      this.toastr.success('Sesión cerrada', 'EXITO', {
+        toastClass: 'ngx-toastr toast-validacion'
+      });
       setTimeout(() => {
         this.router.navigate(['/home']);
       }, 1100);
     } else {
-      this.toastr.error('Error al cerrar sesión');
+      this.toastr.error('Error al cerrar sesión', 'ERROR', {
+        toastClass: 'ngx-toastr toast-denegado'
+      }
+      );
     }
     form.resetForm();
   }

@@ -22,27 +22,31 @@ html, body {
   height: 100%;
 }
 
-.toast-validacion {
-  background-color: #fdfdfd; 
-  color: rgb(0, 0, 0); 
-  padding: 30px; 
-  border-radius: 30px; 
+.toast-container .ngx-toastr {
+  box-shadow: none !important;
+}
+
+.toast-container .ngx-toastr.toast-validacion {
+  background-color:#18800faa;
+  backdrop-filter: blur(5px);
+  color: rgb(255, 255, 255); 
+  padding: 10px 10px 10px 56px; 
+  border-radius: 10px; 
   font-size: 1.3rem; 
-  border: 1px solid #000000; 
-  box-shadow: 0px 0px 35px 25px rgba(0, 255, 0, 0.9);
+  border: 1px solid #0c9200aa; 
   transition: background-color 0.5s ease; 
 }
 
 
 
-.toast-denegado {
-  background-color: #fdfdfd; 
-  color: rgb(0, 0, 0); 
-  padding: 30px; 
-  border-radius: 30px; 
+.toast-container .ngx-toastr.toast-denegado {
+  background-color:#d3bcbc27;
+  color: rgb(255, 0, 0); 
+  padding: 10px 10px 10px 56px; 
+  border-radius: 10px; 
   font-size: 1.3rem; 
-  border: 1px solid #000000; 
-  box-shadow: 0px 0px 35px 25px rgba(255, 0, 0, 0.9);
+  border: 1px solid #ff0000; 
+/*   box-shadow: 0px 0px 5px 0px #ff0000; */
   transition: background-color 0.5s ease; 
 }
 

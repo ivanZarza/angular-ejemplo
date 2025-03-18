@@ -3,7 +3,7 @@
     <div class="id">
     <p>{{ bookDesdePadre.id_book | pipeRef }}</p>
   </div>
-    <button (click)="borrarLibro(bookDesdePadre.id_book)">X</button>
+    <button (click)="onBorrarLibro()">X</button>
   </div>
   <div class="img">
     <img src="{{bookDesdePadre.photo}}" alt="{{bookDesdePadre.title}}">

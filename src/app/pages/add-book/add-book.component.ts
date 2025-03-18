@@ -28,7 +28,7 @@ export class AddBookComponent {
 
   }
 
-  agregarLibro() {
+  public async agregarLibro() {
     
     const nuevoLibro = new Book(this.libroId  = null , this.usuarioId = this.usuarioService.user.id_user, this.titulo, this.type, this.autor, this.precio, this.imagenUrl);
 
@@ -38,16 +38,15 @@ export class AddBookComponent {
     this.precio = null
     this.imagenUrl = ''
 
-    this.serviceBookService.add(nuevoLibro);
+    await this.serviceBookService.add(nuevoLibro);
 
-    if (this.serviceBookService.arrayBooks.length === 0) {
-      this.toastr.error('No se encontró el libro', 'Error', {
-        toastClass: 'ngx-toastr custom-toast'
+    if (this.serviceBookService.respuesta !== 200) {
+      this.toastr.error('No se puso agregar el   libro', 'ERROR', {
+        toastClass: 'ngx-toastr toast-denegado'
       });
     }
-
-    this.toastr.success('Libro agregado con exito', 'Exito', {
-      toastClass: 'ngx-toastr custom-toast'
+    this.toastr.success('Libro agregado con exito', 'EXITO', {
+      toastClass: 'ngx-toastr toast-validacion'
     });
   }
 

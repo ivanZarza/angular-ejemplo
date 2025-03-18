@@ -60,6 +60,8 @@ export class ServiceBookService {
       if (!response.ok) {
         throw new Error('Error en la solicitud');
       }
+      this.respuesta= response.status
+      console.log(this.respuesta);
     } catch (error) {
       console.error('Error:', error);
   }
@@ -84,9 +86,9 @@ export class ServiceBookService {
 
   }
 
-  public delete(id_book: number, id_user: number) {
+  public async delete(id_book: number, id_user: number) {
     try {
-      const response = fetch(`${this.url}`, {
+      const response = await fetch(`${this.url}/books`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -97,6 +99,8 @@ export class ServiceBookService {
       if (!response) {
         throw new Error('Error en la solicitud');
       }
+      this.respuesta= response.status
+      console.log(this.respuesta);
     } catch (error) {
       console.error('Error:', error);
     }
