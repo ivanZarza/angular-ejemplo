@@ -58,7 +58,7 @@ export class UpdateBookComponent {
     this.price = null;
     this.photo = '';
 
-    this.serviceBookService.edit(libroModificado, this.usuarioService.user.id_user);
+    this.serviceBookService.edit(libroModificado);
     this.toastr.success('Libro modificado con éxito', 'EXITO', {
       toastClass: 'ngx-toastr toast-validacion'
     }
