@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
     preventDuplicates: true,
     closeButton: true,
     progressBar: true,
-    timeOut: 0,
+    timeOut: 1500,
     easing: 'ease-in',
     extendedTimeOut: 1000,
     tapToDismiss: true,

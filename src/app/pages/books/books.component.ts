@@ -59,7 +59,7 @@ export class BooksComponent {
       }
     } catch (error) {
       this.toastr.error('Error al buscar el libro o conectar con el servidor', 'ERROR', {
-        toastClass: 'ngx-toastr toast-denegado'
+        toastClass: 'ngx-toastr toast-denegado',
       });
     }
   }
@@ -72,10 +72,10 @@ export class BooksComponent {
         toastClass: 'ngx-toastr toast-denegado'
       });
     } else {
-      this.buscarLibro();
-      this.toastr.success('Libro borrado', 'ÉXITO', {
+      await this.toastr.success('Libro borrado', 'ÉXITO', {
         toastClass: 'ngx-toastr toast-validacion'
       });
+      this.buscarLibro();
     }
   }
 }

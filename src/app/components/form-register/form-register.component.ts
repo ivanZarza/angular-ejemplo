@@ -68,9 +68,14 @@ private noIgual(control: AbstractControl) {
     if (this.usuario.logueado  === true) {
       this.router.navigate(['/login']);
       localStorage.setItem('user', JSON.stringify(this.usuario));
-      this.toastr.success('Usuario registrado correctamente');
+      this.toastr.success('Usuario registrado correctamente', 'EXITO',{
+        toastClass: 'ngx-toastr toast-validacion'
+      });
     } else {
-      this.toastr.error('Error al registrar el usuario');
+      this.toastr.error('Error al registrar el usuario', 'ERROR', {
+        toastClass: 'ngx-toastr toast-denegado'
+      }
+      );
     }
     this.registerForm.reset();
   }

@@ -28,9 +28,14 @@ export class FormLoginComponent {
     if (this.usuario.logueado  === true) {
       this.router.navigate(['/books']);
       localStorage.setItem('user', JSON.stringify(this.usuario));
-      this.toastr.success('Inicio de sesión correcto');
+      this.toastr.success('Inicio de sesión correcto', 'EXITO',{
+        toastClass: 'ngx-toastr toast-validacion'
+      });
     } else {
-      this.toastr.error('Error al iniciar sesión');
+      this.toastr.error('Error al iniciar sesión', 'ERROR', {
+        toastClass: 'ngx-toastr toast-denegado'
+      }
+      );
     }
     form.resetForm();
   }
