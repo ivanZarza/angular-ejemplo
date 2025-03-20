@@ -44,6 +44,7 @@ min-height: 400px;
 }
 
 .img img {
+  max-width: 180px;
 height: 180px;
   border-radius: 4px;
 }
