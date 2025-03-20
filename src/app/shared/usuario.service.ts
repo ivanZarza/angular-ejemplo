@@ -49,7 +49,7 @@ export class UsuarioService {
 
       const data = await response.json();
       this.user = data.data;
-      this.logueado = true;
+/*       this.logueado = true; */
       this.respuesta= response.statusText;
       console.log(this.respuesta);
       globalThis.localStorage?.setItem('user', JSON.stringify(this.user));

@@ -65,7 +65,7 @@ private noIgual(control: AbstractControl) {
     );
 
     await this.usuario.register(datosModificados);
-    if (this.usuario.logueado  === true) {
+    if (this.usuario.respuesta  === '200') {
       this.router.navigate(['/login']);
       localStorage.setItem('user', JSON.stringify(this.usuario));
       this.toastr.success('Usuario registrado correctamente', 'EXITO',{
