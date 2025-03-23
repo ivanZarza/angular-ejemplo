@@ -108,28 +108,15 @@ export class UsuarioService {
   }
 
 
-  public async logout(user: User) {
-    try {
-      const response = await fetch(`${this.url}/logout`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify({ email: user.email, password: user.password }) 
-      });
+  public logout() {
+  
 
-      if (!response.ok) {
-        throw new Error('Error en la solicitud');
-      }
-      
-      const data = await response.json();
-      console.log(data);
-    this.logueado = false;
-    this.user = new User(null, '', '', '', '', '');
-    globalThis.localStorage?.removeItem('user');
-  } catch (error) {
-    console.error('Error:', error);
+      this.logueado = false;
+      this.user = new User(null, '', '', '', '', '');
+      console.log('Sesión cerrada correctamente');
+      globalThis.localStorage?.removeItem('user');
+      console.log('user', this.user);
+      console.log('logueado', this.logueado);
+
   }
-}
 }

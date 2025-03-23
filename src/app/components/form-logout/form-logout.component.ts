@@ -18,29 +18,21 @@ export class FormLogoutComponent {
 
   public user: User;
 
-  constructor(public usuario: UsuarioService, private router: Router, private toastr: ToastrService) {
+  constructor(public usuarioService: UsuarioService, private router: Router, private toastr: ToastrService) {
     this.user = new User(null, '', '', '', '', '');
   }
 
-  public async onSubmit(form: NgForm) {
-    this.user.email = form.value.email;
-    this.user.password = form.value.password;
+  logout() {
+    // Llamar al servicio de logout si es necesario
+    this.usuarioService.logout();
 
-    await this.usuario.logout(this.user);
-    if (this.usuario.logueado === false) {
-      this.toastr.success('Sesión cerrada', 'EXITO', {
-        toastClass: 'ngx-toastr toast-validacion'
-      });
-      setTimeout(() => {
-        this.router.navigate(['/home']);
-      }, 1100);
-    } else {
-      this.toastr.error('Error al cerrar sesión', 'ERROR', {
-        toastClass: 'ngx-toastr toast-denegado'
-      }
-      );
-    }
-    form.resetForm();
+    // Eliminar datos del usuario del almacenamiento local
+    localStorage.removeItem('user');
+
+    // Redirigir al usuario a la página de login
+    this.router.navigate(['/login']);
   }
-}
+
+  }
+
 
