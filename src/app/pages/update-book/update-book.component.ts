@@ -28,6 +28,11 @@ export class UpdateBookComponent {
   constructor(public serviceBookService: ServiceBookService, private toastr: ToastrService, public usuarioService: UsuarioService) {}
 
   async encontrarLibro() {
+    if(!this.id_book){
+      this.toastr.error('Es necesario pasar la Ref del libro', 'ERROR', {
+        toastClass: 'ngx-toastr toast-denegado'})
+        return
+    }
     await this.serviceBookService.getBooks({ id_book: this.id_book , id_user: this.usuarioService.user.id_user });
     console.log(this.serviceBookService.arrayBooks);
     if (this.serviceBookService.arrayBooks.length === 0) {

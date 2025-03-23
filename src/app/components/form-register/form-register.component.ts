@@ -21,11 +21,8 @@ export class FormRegisterComponent {
 
   public registerForm: FormGroup;
 
-  public usuario: UsuarioService;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private usuarioService: UsuarioService, private toastr: ToastrService) {
-
-    this.usuario = new UsuarioService();
 
     this.registerForm = this.formBuilder.group({
       nombre: ['', Validators.required],
@@ -64,10 +61,9 @@ private noIgual(control: AbstractControl) {
       this.registerForm.value.password
     );
 
-    await this.usuario.register(datosModificados);
-    if (this.usuario.respuesta  === '200') {
+    await this.usuarioService.register(datosModificados);
+    if (this.usuarioService.respuesta  === 200) {
       this.router.navigate(['/login']);
-      localStorage.setItem('user', JSON.stringify(this.usuario));
       this.toastr.success('Usuario registrado correctamente', 'EXITO',{
         toastClass: 'ngx-toastr toast-validacion'
       });

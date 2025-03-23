@@ -10,7 +10,7 @@ export class UsuarioService {
   private url: string;
   public logueado: boolean;
   public user: User;
-  public respuesta: string
+  public respuesta: number
 
   constructor() {
     // this.url = 'http://localhost:3000';
@@ -18,7 +18,7 @@ export class UsuarioService {
 
     const userJSON = globalThis.localStorage?.getItem('user')
     if (userJSON) {
-      const { user } = JSON.parse(userJSON);
+      const  user  = JSON.parse(userJSON);
       console.log('user from userJSON', user);
 
       this.user = new User(user.id_user, user.name, user.last_name, user.email, user.photo, user.password);
@@ -49,8 +49,7 @@ export class UsuarioService {
 
       const data = await response.json();
       this.user = data.data;
-/*       this.logueado = true; */
-      this.respuesta= response.statusText;
+      this.respuesta= response.status;
       console.log(this.respuesta);
       globalThis.localStorage?.setItem('user', JSON.stringify(this.user));
     } catch (error) {
